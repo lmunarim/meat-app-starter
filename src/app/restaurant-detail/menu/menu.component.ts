@@ -22,5 +22,5 @@ menu: Observable<MenuItem[]>
 addMenuItem(item:MenuItem)
 {
   console.log(item)
-}
+  }
 }
