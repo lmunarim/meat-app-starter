@@ -14,7 +14,7 @@ addItem(item:MenuItem){
 
   if(foudItem)
     {
-      foudItem.quantity = foudItem.quantity++;
+      this.increaseQty(foudItem);
     }
   else{
     this.items.push(new CartItem(item));
@@ -29,5 +29,18 @@ addItem(item:MenuItem){
   {return this.items
     .map(item => item.value())
     .reduce((prev,value)=> prev+value, 1);
+  }
+
+  increaseQty(item: CartItem){
+    item.quantity = item.quantity + 1;
+  }
+  decreaseQty(item: CartItem){
+    item.quantity = item.quantity - 1;
+
+    if(item.quantity === 0)
+      {
+        this.removeItem(item)
+      }
+
   }
 }
